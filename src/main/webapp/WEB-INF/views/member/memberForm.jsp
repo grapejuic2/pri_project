@@ -159,7 +159,6 @@ width: 70px;
         <button type="button" id="verifyBtn" style="margin-left: 5px; width:100px;">인증 확인</button>
       </div>
       
-      
 		<div class="form-group" style="width:100px; vertical-align: middle">
 			<div class="label-group">
 				<label for="mem_addr"><span class="required" >*</span>주소</label>
@@ -170,8 +169,7 @@ width: 70px;
 			<a href="javascript:execDaumPostcode()">
 			<button type="button" id="addressSearch" style="margin-left: 5px;">주소검색</button>
 			</a>
-		</div>		
-	
+		</div>
 
 		<div class="form-group">
 			<div class="label-group">
@@ -276,24 +274,22 @@ width: 70px;
 	$(document).ready(function() {
 	  $("#sendMail").click(function() {
 	    var mem_email = $("#mem_email").val();
-	
-	    // 이메일 주소의 유효성을 확인
+
 	    if (!isValidEmail(mem_email)) {
 	      alert("올바른 이메일 주소를 입력하세요.");
 	      return;
 	    }
-	
-	    // 이메일 주소가 올바를 경우에만 인증 요청을 보냄
+
 	    $.ajax({
 	      type: "POST",
 	      url: "${contextPath}/member/emailConfirm.do",
 	      data: { mem_email: mem_email },
-	      dataType: "text",
+	      dataType: "json",
 	    })
 	      .done(function(data) {
 	        alert("이메일로 인증번호가 발송되었습니다. 확인해주세요.");
-	        console.log("서버에서 받은 인증 코드: " + data);
-	        $("#emailCode").data("expectedCode", data);
+	        console.log("서버에서 받은 인증 코드: " + data.code);
+	        $("#emailCode").data("expectedCode", data.code);
 	        $("#emailConfirm").removeClass("hide");
 	      })
 	      .fail(function(xhr) {
@@ -310,7 +306,7 @@ width: 70px;
 	  $("#verifyBtn").click(function () {
 	    var verificationCode = $("#emailCode").val();
 	    var expectedCode = $("#emailCode").data("expectedCode");
-	
+	    
 	    if (verificationCode === "") {
 	      alert("인증 코드를 입력해주세요.");
 	      return;

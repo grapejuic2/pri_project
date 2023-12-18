@@ -180,9 +180,7 @@ border: none;
 <body>
 	<div class="frm_mod_member">		
 		
-	<div class="title">
-		주문 내역
-	</div> 
+	<div class="title">주문 내역</div> 
 	
 	<table class="form">
 		<tbody align=center >
@@ -332,9 +330,7 @@ border: none;
 	</div>
 	
 	<script>
-	
 	  $(document).ready(function() {
-	        // 리뷰작성 모달이 열릴 때마다 해당 주문에 대한 상품 체크박스를 다시 보여줌
 	        $('.open-review-modal').on('click', function() {
 	            var orderId = $(this).data('order-id');
 	            var selectedGoodsList = $('#selectedGoodsList' + orderId);
@@ -345,13 +341,12 @@ border: none;
 	                // 해당 주문의 상품만 선택된 상태로 보여줌
 	                if ($(this).data('order-id') == orderId) {
 	                    var checkbox = $(this).clone();
-	                    checkbox.css('display', 'block'); // 상품 이름 왼쪽에 체크박스가 위치하도록 block으로 변경
+	                    checkbox.css('display', 'block');
 	                    selectedGoodsList.append(checkbox);
 	                }
 	            });
 	        });
 
-	        // 리뷰 작성 폼을 제출할 때 체크된 상품의 goods_id를 넘김
 	        $('.open-review-modal').on('click', function() {
 	            var orderId = $(this).data('order-id');
 	            $('#myform' + orderId).on('submit', function(e) {
@@ -404,7 +399,6 @@ border: none;
 		    formObj.submit();	
 		}
 	}
-	
 
 </script>
 </body>

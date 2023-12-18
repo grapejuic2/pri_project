@@ -82,9 +82,11 @@ height: 30px;
 	<div class="title">
 		<h3 class="title"><b>상품 관리</b></h3>
 	</div>
-	<form class="add-goods-form" action="${contextPath}/admin/goods/addNewGoodsForm.do" style="margin-left: 1400px;">
-				<input type="submit" value="상품 등록" class="btn btn-secondary btn-sm" style="width:80px;height: 35px; background: #D24826; color: white; font-family: 'Noto Sans KR', sans-serif; font-weight: 500;font-size: 15px;">
-	</form>
+	<div style="text-align: center;">
+	    <form class="add-goods-form" action="${contextPath}/admin/goods/addNewGoodsForm.do" style="display: inline-block;">
+	        <input type="submit" value="상품 등록" class="btn btn-secondary btn-sm" style="width:80px;height: 35px; background: #D24826; color: white; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; font-size: 15px;">
+	    </form>
+	</div>
 	<TABLE class="frm_mod_main">
 		<TBODY align=center >
 			<tr style="background:#1D1D1D;color: #FFFFFF;font-size: 17px; height: 35px; padding:5px;" >

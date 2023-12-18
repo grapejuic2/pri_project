@@ -12,31 +12,28 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 import com.project.gogi.common.Interceptor.ViewNameInterceptor;
 
 @Configuration
-public class WebMvcConfig implements WebMvcConfigurer{
-	
-	 
-	 @Override
-	 public void addInterceptors(InterceptorRegistry registry) {
-		 
-	        registry.addInterceptor(new ViewNameInterceptor());
-	    }
-	 @Bean
-		public TilesConfigurer tilesConfigurer() {
-			final TilesConfigurer configurer = new TilesConfigurer();
-			configurer.setDefinitions(new String[] {
-					"/WEB-INF/spring/tiles/tiles-define.xml"
-			});
-			configurer.setCheckRefresh(true);
-			return configurer;
-		}
-		
-		@Bean
-		public TilesViewResolver tilesViewResolver() {
-			final TilesViewResolver tilesViewResolver = new TilesViewResolver();
-			tilesViewResolver.setViewClass(TilesView.class);
-			tilesViewResolver.setOrder(1);
-			return tilesViewResolver;
-		}
-		
-		 
+public class WebMvcConfig implements WebMvcConfigurer {
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+
+		registry.addInterceptor(new ViewNameInterceptor());
+	}
+
+	@Bean
+	public TilesConfigurer tilesConfigurer() {
+		final TilesConfigurer configurer = new TilesConfigurer();
+		configurer.setDefinitions(new String[] { "/WEB-INF/spring/tiles/tiles-define.xml" });
+		configurer.setCheckRefresh(true);
+		return configurer;
+	}
+
+	@Bean
+	public TilesViewResolver tilesViewResolver() {
+		final TilesViewResolver tilesViewResolver = new TilesViewResolver();
+		tilesViewResolver.setViewClass(TilesView.class);
+		tilesViewResolver.setOrder(1);
+		return tilesViewResolver;
+	}
+
 }

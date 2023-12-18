@@ -26,7 +26,7 @@
 <h1>
 	Hello world!  
 </h1>
-<a href="/notice/noticeWrite"> 글 작성</a>
-<p>하나 확인</p>
+<a href="/notice/noticeWrite">Hello World</a>
+<p></p>
 </body>
 </html>

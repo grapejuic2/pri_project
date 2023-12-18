@@ -68,14 +68,10 @@
 	
 	<!-- 주문 상품의 배송 상태를 수정합니다. -->
 	<update id="updateDeliveryState" parameterType="java.util.Map">
-		UPDATE gogi_order
-		SET
-		    order_delivery_status = CASE
-		        WHEN #{order_delivery_status} IS NOT NULL AND #{order_delivery_status} != ''
-		            THEN #{order_delivery_status}
-		        ELSE order_delivery_status
-		    END
-		WHERE order_id = #{order_id};
+	    UPDATE gogi_order
+	    SET
+	        order_delivery_status = IF(#{order_delivery_status} IS NOT NULL AND #{order_delivery_status} != '', #{order_delivery_status}, order_delivery_status)
+	    WHERE order_id = #{order_id};
 	</update>
 
 	<select id="selectOrderDetail" resultMap="orderResult" parameterType="int">

@@ -205,8 +205,6 @@
 	    WHERE goods_id = #{goods_id}
 	</update>
 	
-	
-	
 	<!-- 상품 이미지 정보를 수정합니다. -->
 	<update id="updateGoodsImage" parameterType="imageFileVO">
 		update gogi_goods_image
